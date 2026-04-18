@@ -131,6 +131,8 @@
       font-size: 0.95rem;
     }
 
+    /* PRODUCTS */
+
     .products-grid {
       display: grid;
       gap: 14px;
@@ -163,6 +165,90 @@
       border-radius: 8px;
       margin-bottom: 8px;
       border: 1px solid var(--border);
+    }
+
+    /* INVESTOR CARD */
+
+    .investor-card {
+      background: radial-gradient(circle at top left, #1a1a1a 0%, #050505 70%);
+      border: 1px solid rgba(192,192,192,0.25);
+      box-shadow: 0 0 40px rgba(192,192,192,0.08);
+      padding: 28px 24px;
+    }
+
+    .investor-header h2 {
+      font-size: 1.4rem;
+      margin-top: 6px;
+    }
+
+    .investor-tag {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--accent);
+    }
+
+    .investor-intro {
+      margin: 14px 0 20px;
+      max-width: 520px;
+    }
+
+    .investor-grid {
+      display: grid;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .investor-grid h3 {
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .investor-grid p {
+      font-size: 0.9rem;
+    }
+
+    .investor-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .investor-metrics div {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px;
+      text-align: center;
+      background: rgba(255,255,255,0.02);
+    }
+
+    .investor-metrics span {
+      display: block;
+      font-size: 0.7rem;
+      color: var(--muted);
+      margin-bottom: 2px;
+    }
+
+    .investor-metrics strong {
+      font-size: 0.85rem;
+    }
+
+    .investor-cta {
+      display: inline-block;
+      border: 1px solid var(--accent);
+      border-radius: 999px;
+      padding: 10px 18px;
+      font-size: 0.85rem;
+      text-decoration: none;
+      color: var(--fg);
+    }
+
+    .investor-cta:hover {
+      background: rgba(192,192,192,0.08);
     }
 
     footer {
@@ -204,8 +290,8 @@
         <h1>Light up when your people are near!</h1>
         <h2>(Test, no business yet)</h2>
         <p>
-          likeyou is a minimal, glowing wearable that silently matches you with people
-          who share your vibe — no swiping, just a signal when it matters.
+          likeyou is a minimal, glowing wearable that connects you to people
+          who share your vibe — no swiping, just presence.
         </p>
         <a class="hero-cta" href="#products">
           Discover the collection
@@ -219,7 +305,6 @@
           <h2>About us</h2>
           <p>
             We’re a small team at the intersection of wearable tech and fashion.
-            Our goal is to create pieces that feel like wearables first and technology second.
           </p>
         </section>
 
@@ -249,16 +334,53 @@
         <section id="vision">
           <h2>Vision</h2>
           <p>
-            We believe social tech should be quiet and human.
             A small glow at the right moment can start something real.
           </p>
         </section>
 
-        <section id="investors">
-          <h2>Investors</h2>
-          <p>
-            likeyou builds a wearable social-connection platform for real-world interaction.
+        <!-- INVESTOR PREMIUM SECTION -->
+        <section id="investors" class="investor-card">
+          <div class="investor-header">
+            <span class="investor-tag">For investors</span>
+            <h2>Building the next layer of social connection</h2>
+          </div>
+
+          <p class="investor-intro">
+            likeyou is a wearable-first social discovery platform enabling real-world
+            connection through subtle proximity signals.
           </p>
+
+          <div class="investor-grid">
+            <div>
+              <h3>Product</h3>
+              <p>Smart jewelry that glows when shared preferences match nearby.</p>
+            </div>
+            <div>
+              <h3>Model</h3>
+              <p>B2B event distribution + design-led B2C consumer line.</p>
+            </div>
+            <div>
+              <h3>Edge</h3>
+              <p>Shared tech core enables fast iteration and scaling.</p>
+            </div>
+          </div>
+
+          <div class="investor-metrics">
+            <div>
+              <span>Market</span>
+              <strong>Wearables × Social</strong>
+            </div>
+            <div>
+              <span>Focus</span>
+              <strong>Gen Z / Urban</strong>
+            </div>
+            <div>
+              <span>Status</span>
+              <strong>Early stage</strong>
+            </div>
+          </div>
+
+          <a href="#contact" class="investor-cta">Get in touch</a>
         </section>
 
         <section id="shop">

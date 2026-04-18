@@ -8,13 +8,14 @@
     :root {
       --bg: #050505;
       --fg: #f5f5f5;
-      --accent: #c0c0c0; /* silver */
-      --muted: #777777;  /* grey */
+      --accent: #c0c0c0;
+      --muted: #777777;
       --border: #2a2a2a;
       --radius: 12px;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background: var(--bg);
@@ -48,6 +49,7 @@
       margin-left: 20px;
       font-size: 0.9rem;
     }
+
     nav a:hover {
       color: var(--accent);
     }
@@ -81,6 +83,7 @@
       color: var(--accent);
       margin-bottom: 16px;
     }
+
     .hero-tag-dot {
       width: 7px;
       height: 7px;
@@ -99,6 +102,7 @@
       color: var(--fg);
       text-decoration: none;
     }
+
     .hero-cta span {
       color: var(--muted);
       font-size: 0.8rem;
@@ -136,7 +140,7 @@
     .product-card {
       border-radius: 10px;
       border: 1px solid var(--border);
-      padding: 12px 12px 10px;
+      padding: 12px;
       background: rgba(255,255,255,0.01);
     }
 
@@ -151,14 +155,15 @@
       text-transform: uppercase;
       letter-spacing: 0.14em;
     }
+
     .product-image {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 8px;
-  border: 1px solid var(--border);
-}
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 8px;
+      border: 1px solid var(--border);
+    }
 
     footer {
       margin-top: 40px;
@@ -170,11 +175,12 @@
 
     @media (min-width: 768px) {
       .sections {
-        grid-template-columns: 1.1fr 1.1fr 1.1fr;
+        grid-template-columns: repeat(3, 1fr);
       }
     }
   </style>
 </head>
+
 <body>
   <div class="page">
     <header>
@@ -184,8 +190,8 @@
         <a href="#products">Products</a>
         <a href="#vision">Vision</a>
         <a href="#investors">Investors</a>
-         <a href="#shop">Shop</a>
-         <a href="#contact">Contact</a>
+        <a href="#shop">Shop</a>
+        <a href="#contact">Contact</a>
       </nav>
     </header>
 
@@ -195,11 +201,11 @@
           <div class="hero-tag-dot"></div>
           <span>Smart wearables for real life</span>
         </div>
-        <h1> Light up when your people are near! </h1>
-         <h2> (Test, no business yet).</h2>
+        <h1>Light up when your people are near!</h1>
+        <h2>(Test, no business yet)</h2>
         <p>
           likeyou is a minimal, glowing wearable that silently matches you with people
-          who share your vibe — no swiping, no small talk app, just a signal when it matters.
+          who share your vibe — no swiping, just a signal when it matters.
         </p>
         <a class="hero-cta" href="#products">
           Discover the collection
@@ -208,83 +214,64 @@
       </section>
 
       <div class="sections">
+
         <section id="about">
           <h2>About us</h2>
           <p>
             We’re a small team at the intersection of wearable tech and fashion.
-            Our goal is to create pieces that feel like wearables first and technology second —
-            simple to use, privacy‑respecting, and designed for everyday wear.
+            Our goal is to create pieces that feel like wearables first and technology second.
           </p>
         </section>
 
-       <section id="products">
-  <h2>Products</h2>
-  <div class="products-grid">
-    <div class="product-card">
-      <img src= "female.png" alt="likeyou bracelet female" class="product-image" />
-      <h3>B2B Linie - Bracelet Female</h3>
-      <div class="product-meta"> trade fairs · exhibitions </div>
-    </div>
-    <div class="product-card">
-      <img src="male.png" alt="likeyou bracelet male" class="product-image" />
-      <h3>B2B Line - Bracelet Male</h3>
-      <div class="product-meta"> conferences · events </div>
-   </div>
-          <div class="product-card">
-      <img src="B2C_jewlry.png" alt="likeyou jewelry female" class="product-image" />
-      <h3> B2C Line - Stylish Jewelry</h3>
-      <div class="product-meta">bonding · glowing </div>
-      
-    </div>
-  </div>
-</section>
+        <section id="products">
+          <h2>Products</h2>
+          <div class="products-grid">
+            <div class="product-card">
+              <img src="female.png" class="product-image">
+              <h3>B2B Line - Bracelet Female</h3>
+              <div class="product-meta">trade fairs · exhibitions</div>
+            </div>
+
+            <div class="product-card">
+              <img src="male.png" class="product-image">
+              <h3>B2B Line - Bracelet Male</h3>
+              <div class="product-meta">conferences · events</div>
+            </div>
+
+            <div class="product-card">
+              <img src="B2C_jewlry.png" class="product-image">
+              <h3>B2C Line - Stylish Jewelry</h3>
+              <div class="product-meta">bonding · glowing</div>
+            </div>
+          </div>
+        </section>
 
         <section id="vision">
           <h2>Vision</h2>
           <p>
-            We believe the next wave of social technology will be quiet, ambient, and respectful.
-            likeyou aims to become the simplest way to notice the people around you who resonate
-            with who you are — without feeds, notifications, or constant screens.
-            We want to connect people in a time where most connections start on screens.
-            
-            We believe that even in a hyper‑online world, people still feel lonely 
-            – and that a small glow at the right moment can be enough to start something real.
+            We believe social tech should be quiet and human.
+            A small glow at the right moment can start something real.
           </p>
-            </div>
         </section>
-      </div>
-      <section id="investors">
-  <h2>Investors</h2>
-  <p>
-    likeyou is building a wearable social-connection platform designed for real-world interaction.
-    Our products help people discover shared interests nearby through subtle BLE-powered glow signals.
-  </p>
-  <p>
-    We operate a dual product strategy: a simple, scalable B2B silicone bracelet line for trade shows
-    and networking events, and a design-led B2C line including premium jewelry-style variants and
-    a clip-on option for broader everyday use.
-  </p>
-  <p>
-    Our go-to-market combines B2B event distribution with creator-led consumer growth.
-    The technical core is shared across lines, enabling faster iteration, lower complexity, and efficient scaling.
-    likeyou is positioned at the intersection of wearable tech, social discovery, and lifestyle design.
-  </p>
-          </div>
-</section>
+
+        <section id="investors">
+          <h2>Investors</h2>
+          <p>
+            likeyou builds a wearable social-connection platform for real-world interaction.
+          </p>
+        </section>
+
         <section id="shop">
-  <h2>Shop</h2>
-  <p>
-    Online Shop coming soon
-  </p>
-            </div>
-</section>
-          <section id="contact">
-  <h2>Contact</h2>
-  <p>
-    Email: info.likeyou@gmx.de
-  </p>
-              </div>
-</section>
+          <h2>Shop</h2>
+          <p>Online shop coming soon.</p>
+        </section>
+
+        <section id="contact">
+          <h2>Contact</h2>
+          <p>Email: info.likeyou@gmx.de</p>
+        </section>
+
+      </div>
     </main>
 
     <footer>
@@ -292,12 +279,4 @@
     </footer>
   </div>
 </body>
-
 </html>
-
-
-
-
-
-
-

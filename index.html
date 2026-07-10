@@ -1,36 +1,215 @@
-<div class="logo">GemTale</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>GemTale – Enotional Jewelry</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #050505;
+      --fg: #f5f5f5;
+      --accent: #c0c0c0; /* silver */
+      --muted: #777777;  /* grey */
+      --border: #2a2a2a;
+      --radius: 12px;
+    }
 
-<nav>
-  <a href="#about">Story</a>
-  <a href="#products">Collection</a>
-  <a href="#vision">Vision</a>
-</nav>
-<div class="hero-tag">
-    <div class="hero-tag-dot"></div>
-    <span>Luxury Jewelry meets Storytelling</span>
-  </div>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+    }
 
-  <h1>
-    Every heart carries a story. Every new owner continues it.
-  </h1>
+    .page {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 32px 20px 64px;
+    }
 
-  <p>
-    GemTale transforms a handcrafted heart necklace or bracelet into a living story.
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 40px;
+    }
+
+    .logo {
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 0.9rem;
+    }
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    .hero {
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px 28px;
+      margin-bottom: 48px;
+      background: radial-gradient(circle at top, #333 0, #050505 55%);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.1rem, 4vw, 2.8rem);
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 520px;
+      margin-bottom: 20px;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .hero-tag-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      font-size: 0.85rem;
+      color: var(--fg);
+      text-decoration: none;
+    }
+    .hero-cta span {
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    .sections {
+      display: grid;
+      gap: 28px;
+      margin-top: 16px;
+    }
+
+    section {
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      padding: 22px 20px;
+      background: linear-gradient(135deg, #111 0, #050505 60%);
+    }
+
+    section h2 {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+
+    section p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .products-grid {
+      display: grid;
+      gap: 14px;
+      margin-top: 8px;
+    }
+
+    .product-card {
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      padding: 12px 12px 10px;
+      background: rgba(255,255,255,0.01);
+    }
+
+    .product-card h3 {
+      font-size: 0.98rem;
+      margin-bottom: 3px;
+    }
+
+    .product-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+    .product-image {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  border: 1px solid var(--border);
+}
+
+    footer {
+      margin-top: 40px;
+      font-size: 0.8rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      padding-top: 16px;
+    }
+
+    @media (min-width: 768px) {
+      .sections {
+        grid-template-columns: 1.1fr 1.1fr 1.1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="logo">GemTale</div>
+      <nav>
+        <a href="#about">About us</a>
+        <a href="#products">Products</a>
+        <a href="#vision">Vision</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-tag">
+          <div class="hero-tag-dot"></div>
+          <span>Smart jewelry for real life</span>
+        </div>
+        <h1>  Every heart carries a story. Every new owner continues it (Test, no business yet).</h1>
+        <p>
+           GemTale transforms a handcrafted heart necklace or bracelet into a living story.
     Every evening, our AI journal asks meaningful questions, turning memories into
     beautifully written chapters. When the jewelry is passed on, the next owner
     preserves the past while continuing the story with their own life.
-  </p>
+        </p>
+        <a class="hero-cta" href="#products">
+          Discover the collection
+          <span>Black · silver · subtle glow</span>
+        </a>
+      </section>
 
-  <a class="hero-cta" href="#products">
-    Discover the Collection
-    <span>Heart Necklace · Heart Bracelet</span>
-  </a>
-</section>
-<section id="about">
-<h2>Our Story</h2>
-
-<p>
-GemTale combines timeless jewelry with artificial intelligence to create something
+      <div class="sections">
+        <section id="about">
+          <h2>About us</h2>
+          <p>
+            GemTale combines timeless jewelry with artificial intelligence to create something
 that has never existed before: jewelry that remembers.
 
 Each piece is paired with an AI-powered journal that gently asks its owner
@@ -41,31 +220,20 @@ Unlike traditional diaries, the story is attached to the jewelry itself.
 When the piece changes hands—between generations, friends, partners,
 or even strangers—the previous chapters become permanent memories,
 while the new owner continues writing the next ones.
-</p>
+          </p>
+        </section>
 
+       <section id="products">
+  <h2>Products</h2>
+  <div class="products-grid">
+       </div>
+  </div>
 </section>
-<div class="product-meta">
-Sterling Silver · AI Connected · Timeless
-</div>
 
-</div>
-
-<div class="product-card">
-
-<img src="images/bracelet.jpg" alt="GemTale Heart Bracelet" class="product-image"/>
-
-<h3>Heart Bracelet</h3>
-
-<div class="product-meta">
-Luxury Design · AI Connected · Everyday Wear
-</div>
-
-</div>
-
-</div>
-
-</section>
-We believe jewelry should carry more than precious materials—it should carry
+        <section id="vision">
+          <h2>Vision</h2>
+          <p>
+            We believe jewelry should carry more than precious materials—it should carry
 human experiences.
 
 GemTale creates emotional objects that grow more valuable over time,
@@ -81,10 +249,16 @@ Every chapter becomes part of something bigger.
 Our long-term vision is to build the world's largest network of living,
 physical stories—where luxury jewelry becomes an emotional archive
 that connects generations through AI-powered storytelling.
+          </p>
+        </section>
+      </div>
+    </main>
 
-</p>
+    <footer>
+      © GemTale — Every Heart Has A Story, 2026.
+    </footer>
+  </div>
+</body>
 
-</section>
-<footer>
-© GemTale — Every Heart Has A Story, 2026.
-</footer>
+</html>
+

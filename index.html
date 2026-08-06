@@ -27,8 +27,10 @@ body {
 }
 header {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+  gap: 16px;
   margin-bottom: 40px;
 }
 .logo {
@@ -101,8 +103,9 @@ nav a:hover {
 section {
   border-radius: var(--radius);
   border: 1px solid var(--border);
-  padding: 22px 20px;
+  padding: 28px 24px;
   background: linear-gradient(135deg, #111 0, #050505 60%);
+  height: 100%;
 }
 section h2 {
   font-size: 1.1rem;
@@ -176,7 +179,6 @@ section p {
   background: radial-gradient(circle at top left, #1a1a1a 0%, #050505 70%);
   border: 1px solid rgba(192,192,192,0.25);
   box-shadow: 0 0 40px rgba(192,192,192,0.08);
-  padding: 28px 24px;
 }
 .investor-header h2 {
   font-size: 1.4rem;
@@ -190,7 +192,7 @@ section p {
 }
 .investor-intro {
   margin: 14px 0 20px;
-  max-width: 560px;
+  max-width: 720px;
 }
 .investor-grid {
   display: grid;
@@ -248,19 +250,32 @@ footer {
   border-top: 1px solid var(--border);
   padding-top: 16px;
 }
+@media (max-width: 767px) {
+  nav a {
+    margin-left: 0;
+    margin-right: 16px;
+  }
+  .investor-metrics {
+    grid-template-columns: 1fr;
+  }
+}
 @media (min-width: 768px) {
   .sections {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
   }
-  #products {
-    grid-column: 1 / -1;
-  }
+  #about { grid-column: 1; grid-row: 1; }
+  #vision { grid-column: 2; grid-row: 1; }
+  #products { grid-column: 1 / -1; grid-row: 2; }
+  #investors { grid-column: 1 / -1; grid-row: 3; }
+  #shop { grid-column: 1; grid-row: 4; }
+  #contact { grid-column: 2; grid-row: 4; }
   .product-showcase {
     grid-template-columns: 1.1fr 1fr;
     align-items: start;
   }
-  #investors.investor-card {
-    grid-column: 1 / -1;
+  .investor-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 </style>
@@ -300,7 +315,7 @@ footer {
       <section id="about">
         <h2>About us</h2>
         <p>
-          GemTale sits at the intersection of emotional consumer tech and moder jewelry.
+          GemTale sits at the intersection of emotional consumer tech and modern jewelry.
           We build a physical gem paired with a mobile app that asks short questions every evening —
           mood, experiences, gratitude — and uses AI to shape them into personal diary entries.
           Users can add their own thoughts and images. After syncing with the gem via Bluetooth,
@@ -308,6 +323,18 @@ footer {
           When the gem is passed on, the current chapter freezes. Both the previous and new owner
           can read every frozen chapter and follow the active one as it grows.
           The value is not technology. The value is memory — carried across people and generations.
+        </p>
+      </section>
+      <section id="vision">
+        <h2>Vision</h2>
+        <p>
+          We believe jewelry should carry more than precious materials — it should carry human experience.
+          GemTale creates emotional objects that grow more valuable over time, not because of gold or silver,
+          but because of the stories they contain. A gem passed from mother to daughter.
+          A bracelet shared between lifelong friends. A necklace that travels from owner to owner,
+          each person leaving one frozen chapter before the next begins.
+          Our vision is the first heirloom that grows with AI and is passed from person to person —
+          one chapter at a time, preserved forever.
         </p>
       </section>
       <section id="products">
@@ -350,18 +377,6 @@ footer {
         <p class="product-note">
           For the start: one silver necklace with a unique engraved ID. You choose the gem color —
           the piece stays the same, the stone makes it personal. Entry from €39, Premium from €99.
-        </p>
-      </section>
-      <section id="vision">
-        <h2>Vision</h2>
-        <p>
-          We believe jewelry should carry more than precious materials — it should carry human experience.
-          GemTale creates emotional objects that grow more valuable over time, not because of gold or silver,
-          but because of the stories they contain. A gem passed from mother to daughter.
-          A bracelet shared between lifelong friends. A necklace that travels from owner to owner,
-          each person leaving one frozen chapter before the next begins.
-          Our vision is the first heirloom that grows with AI and is passed from person to person —
-          one chapter at a time, preserved forever.
         </p>
       </section>
       <section id="investors" class="investor-card">

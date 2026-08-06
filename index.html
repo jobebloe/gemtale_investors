@@ -112,36 +112,64 @@ section p {
   color: var(--muted);
   font-size: 0.95rem;
 }
-/* PRODUCTS */
-.products-grid {
+/* PRODUCT */
+.product-showcase {
   display: grid;
-  gap: 14px;
-  margin-top: 8px;
-}
-.product-card {
-  border-radius: 10px;
-  border: 1px solid var(--border);
-  padding: 12px;
-  background: rgba(255,255,255,0.01);
-}
-.product-card h3 {
-  font-size: 0.98rem;
-  margin-bottom: 3px;
-}
-.product-meta {
-  font-size: 0.8rem;
-  color: var(--muted);
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
+  gap: 20px;
+  margin-top: 12px;
 }
 .product-image {
   width: 100%;
-  height: 150px;
+  max-height: 320px;
   object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 8px;
+  border-radius: 10px;
   border: 1px solid var(--border);
   background: #111;
+}
+.product-specs {
+  display: grid;
+  gap: 10px;
+  list-style: none;
+}
+.product-specs li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.02);
+  font-size: 0.92rem;
+  color: var(--fg);
+}
+.product-specs li span {
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  margin-top: 7px;
+  border-radius: 999px;
+  background: var(--accent);
+}
+.product-specs li small {
+  display: block;
+  color: var(--muted);
+  font-size: 0.82rem;
+  margin-top: 2px;
+}
+.product-note {
+  margin-top: 14px;
+}
+.product-kicker {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+.product-title {
+  font-size: 1rem;
+  color: var(--fg);
+  margin-bottom: 12px;
 }
 /* INVESTOR CARD */
 .investor-card {
@@ -224,6 +252,13 @@ footer {
   .sections {
     grid-template-columns: repeat(3, 1fr);
   }
+  #products {
+    grid-column: 1 / -1;
+  }
+  .product-showcase {
+    grid-template-columns: 1.1fr 1fr;
+    align-items: start;
+  }
   #investors.investor-card {
     grid-column: 1 / -1;
   }
@@ -251,14 +286,14 @@ footer {
       </div>
       <h1>Every gem carries a story.</h1>
       <p>
-        GemTale pairs a physical gem — worn as a bracelet or necklace — with an AI-powered evening journal.
+        GemTale pairs a physical gem — worn as a necklace — with an AI-powered evening journal.
         Each night, the app asks thoughtful questions and turns your answers into a personal diary entry.
         Add your own thoughts and photos. When you pass the gem on, your chapter is frozen forever —
         and the new owner begins the next chapter.
       </p>
       <a class="hero-cta" href="#products">
-        Discover the collection
-        <span>Bracelet · Necklace · Male · Female · Unisex</span>
+        Discover the gem
+        <span>Silver necklace · Gem color varies</span>
       </a>
     </section>
     <div class="sections">
@@ -276,29 +311,47 @@ footer {
         </p>
       </section>
       <section id="products">
-  <h2>Products</h2>
-  <div class="products-grid">
-    <div class="product-card">
-      <img src="female1.png" alt="GemTale — female" class="product-image">
-      <h3>Female · Line</h3>
-      <div class="product-meta">refined · diary · heirloom</div>
-    </div>
-    <div class="product-card">
-      <img src="male1.png" alt="GemTale — male" class="product-image">
-      <h3>Male · Line</h3>
-      <div class="product-meta">bold · ritual · chapter</div>
-    </div>
-    <div class="product-card">
-      <img src="unisex1.png" alt="GemTale — unisex" class="product-image">
-      <h3>Unisex · Line</h3>
-      <div class="product-meta">neutral · story · pass-on</div>
-    </div>
-  </div>
-  <p style="margin-top: 12px;">
-    Two form factors — bracelet and necklace — each in male, female, and unisex designs.
-    Every gem shares the same core module and unique engraved ID. Entry from €39, Premium from €99.
-  </p>
-</section>
+        <h2>Product</h2>
+        <p class="product-kicker">Launch edition</p>
+        <p class="product-title">Silver necklace — gem color varies</p>
+        <div class="product-showcase">
+          <img src="GemTale1.png" alt="GemTale — silver necklace" class="product-image">
+          <ul class="product-specs">
+            <li>
+              <span></span>
+              <div>
+                BLE powered
+                <small>Syncs with the app over Bluetooth after each diary entry — a quiet physical ritual.</small>
+              </div>
+            </li>
+            <li>
+              <span></span>
+              <div>
+                Long-life LiPo battery
+                <small>Built for everyday wear — weeks of use on a single charge, not days.</small>
+              </div>
+            </li>
+            <li>
+              <span></span>
+              <div>
+                Rechargeable
+                <small>USB charging — simple, reliable, no disposable cells.</small>
+              </div>
+            </li>
+            <li>
+              <span></span>
+              <div>
+                Silver necklace · modern design
+                <small>One launch product in polished silver — the gem itself comes in different colors.</small>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <p class="product-note">
+          For the start: one silver necklace with a unique engraved ID. You choose the gem color —
+          the piece stays the same, the stone makes it personal. Entry from €39, Premium from €99.
+        </p>
+      </section>
       <section id="vision">
         <h2>Vision</h2>
         <p>
@@ -313,59 +366,4 @@ footer {
       </section>
       <section id="investors" class="investor-card">
         <div class="investor-header">
-          <span class="investor-tag">For investors</span>
-          <h2>The first AI heirloom — one chapter per owner</h2>
-        </div>
-        <p class="investor-intro">
-          GemTale connects a daily AI diary to a physical gem that can be passed from person to person.
-          Freemium model: affordable hardware, free base app, Premium subscription for full owner-chain
-          timeline, export, and cross-chapter visibility. Target audience: adults 25–55, families,
-          and meaningful gift occasions. Founded 2025, HQ Munich. Seeking €650k Seed for app, AI,
-          hardware, and 12–18 months runway to Series A readiness.
-        </p>
-        <div class="investor-grid">
-          <div>
-            <h3>Market</h3>
-            <p>Emotional consumer tech · keepsakes · digital wellness · meaningful gifts. SAM DACH + EU: €500M–€1B over 5 years.</p>
-          </div>
-          <div>
-            <h3>Model</h3>
-            <p>Freemium hardware + app. Premium €59/year. Illustrative Year 3 revenue ~€4.5M. Gross margin target ~72%.</p>
-          </div>
-          <div>
-            <h3>Moat</h3>
-            <p>Physical gem + AI diary + owner-chain with frozen chapters. Emotional attachment and generational handover.</p>
-          </div>
-        </div>
-        <div class="investor-metrics">
-          <div>
-            <span>Raising</span>
-            <strong>€650k Seed</strong>
-          </div>
-          <div>
-            <span>Audience</span>
-            <strong>25–55 · Families</strong>
-          </div>
-          <div>
-            <span>Status</span>
-            <strong>Early stage</strong>
-          </div>
-        </div>
-        <a href="#contact" class="investor-cta">Get in touch</a>
-      </section>
-      <section id="shop">
-        <h2>Shop</h2>
-        <p>Online shop coming soon. Bracelet and necklace — entry, standard, and premium tiers.</p>
-      </section>
-      <section id="contact">
-        <h2>Contact</h2>
-        <p>Email: info.likeyou@gmx.de</p>
-      </section>
-    </div>
-  </main>
-  <footer>
-    © GemTale — The Gem That Carries Your Story, 2026.
-  </footer>
-</div>
-</body>
-</html>
+         

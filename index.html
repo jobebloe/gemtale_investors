@@ -121,8 +121,25 @@ section p {
   gap: 20px;
   margin-top: 12px;
 }
+.product-variants {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 1fr 1fr;
+}
+.product-variant {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.product-variant-label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+}
 .product-image {
   width: 100%;
+  aspect-ratio: 4 / 5;
   max-height: 320px;
   object-fit: cover;
   border-radius: 10px;
@@ -258,6 +275,13 @@ footer {
   .investor-metrics {
     grid-template-columns: 1fr;
   }
+  .product-variants {
+    grid-template-columns: 1fr;
+  }
+  .product-image {
+    max-height: 280px;
+    aspect-ratio: 16 / 11;
+  }
 }
 @media (min-width: 768px) {
   .sections {
@@ -271,11 +295,16 @@ footer {
   #shop { grid-column: 1; grid-row: 4; }
   #contact { grid-column: 2; grid-row: 4; }
   .product-showcase {
-    grid-template-columns: 1.1fr 1fr;
+    grid-template-columns: 1.15fr 1fr;
     align-items: start;
   }
   .investor-grid {
     grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (min-width: 768px) and (max-width: 900px) {
+  .product-showcase {
+    grid-template-columns: 1fr;
   }
 }
 </style>
@@ -308,7 +337,7 @@ footer {
       </p>
       <a class="hero-cta" href="#products">
         Discover the gem
-        <span>Silver necklace · Gem color varies</span>
+        <span>Female &amp; male versions · Gem color varies</span>
       </a>
     </section>
     <div class="sections">
@@ -340,9 +369,18 @@ footer {
       <section id="products">
         <h2>Product</h2>
         <p class="product-kicker">Launch edition</p>
-        <p class="product-title">Silver necklace — gem color varies</p>
+        <p class="product-title">Silver necklace — female &amp; male versions, gem color by preference</p>
         <div class="product-showcase">
-          <img src="GemTale1.png" alt="GemTale — silver necklace" class="product-image">
+          <div class="product-variants">
+            <figure class="product-variant">
+              <figcaption class="product-variant-label">Female version</figcaption>
+              <img src="GemTale1.png" alt="GemTale female version — silver necklace" class="product-image">
+            </figure>
+            <figure class="product-variant">
+              <figcaption class="product-variant-label">Male version</figcaption>
+              <img src="GemTale2.png" alt="GemTale male version — silver necklace" class="product-image">
+            </figure>
+          </div>
           <ul class="product-specs">
             <li>
               <span></span>
@@ -368,15 +406,16 @@ footer {
             <li>
               <span></span>
               <div>
-                Silver necklace · modern design
-                <small>One launch product in polished silver — the gem itself comes in different colors.</small>
+                Two silver necklace designs
+                <small>Female and male versions at launch — each with its own gem color, chosen to your taste.</small>
               </div>
             </li>
           </ul>
         </div>
         <p class="product-note">
-          For the start: one silver necklace with a unique engraved ID. You choose the gem color —
-          the piece stays the same, the stone makes it personal.
+          For the start: two polished silver necklaces — female and male versions — each with a unique
+          engraved ID. Pick the design that fits you; the gem color can differ for both, according to
+          your preferences.
         </p>
       </section>
       <section id="investors" class="investor-card">
@@ -423,7 +462,7 @@ footer {
       </section>
       <section id="shop">
         <h2>Shop</h2>
-        <p>Online shop coming soon. Launching with one silver necklace — choose your gem color.</p>
+        <p>Online shop coming soon. Launching with two silver necklace designs — female and male versions — each with a gem color chosen to your preference.</p>
       </section>
       <section id="contact">
         <h2>Contact</h2>

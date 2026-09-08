@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
@@ -151,6 +151,21 @@ section p {
   height: auto;
   object-fit: contain;
   display: block;
+}
+.product-video-frame {
+  padding: 10px;
+  min-height: 0;
+  background: #0a0a0a;
+}
+.product-video {
+  width: 100%;
+  max-width: 200px;
+  max-height: 200px;
+  margin: 0 auto;
+  display: block;
+  object-fit: cover;
+  border-radius: 8px;
+  background: #000;
 }
 .product-variant-label {
   font-size: 0.78rem;
@@ -345,13 +360,13 @@ footer {
       </div>
       <h1>Every gem carries a story.</h1>
       <p>
-        GemTale is a friendly ghost companion with a gem on its belly — a bright, 3D-printed
+        GemTale is a friendly spirit companion with a gem on its belly — a bright, 3D-printed
         accessory that holds your chapter of an adventure log. Each evening, the app turns mood,
-        notes, and photos into a personal entry. Pass the ghost on: your chapter freezes, and you
+        notes, and photos into a personal entry. Pass the spirit on: your chapter freezes, and you
         can follow where the traveling gem goes next.
       </p>
       <a class="hero-cta" href="#products">
-        Meet the ghost
+        Meet the spirit
         <span>Bright colors · Gem on belly · Forward &amp; follow</span>
       </a>
     </section>
@@ -360,10 +375,10 @@ footer {
         <h2>About us</h2>
         <p>
           GemTale sits at the intersection of emotional consumer tech and playful accessories.
-          A <strong>friendly ghost figure</strong> (3D-printed, bright colors) carries a
+          A <strong>friendly spirit figure</strong> (3D-printed, bright colors) carries a
           <strong>gem on its belly</strong> — the physical token for a cloud adventure log.
           Pair once via USB + Bluetooth when you receive it; then log moods, notes, and photos anytime.
-          <strong>Forward the ghost</strong> to a friend: your chapter freezes, theirs begins, and you
+          <strong>Forward the spirit</strong> to a friend: your chapter freezes, theirs begins, and you
           can follow the traveling gem&apos;s story as it moves from person to person.
         </p>
       </section>
@@ -371,7 +386,7 @@ footer {
         <h2>Vision</h2>
         <p>
           We believe objects should carry human experience — not precious metal, but
-          <strong>stories that travel</strong>. A ghost passed from friend to friend, each adding
+          <strong>stories that travel</strong>. A spirit passed from friend to friend, each adding
           a chapter with photos and AI-crafted entries. The gem on its belly is the thread.
           Our vision: the first companion whose story you can <strong>forward</strong> and
           <strong>follow</strong> — one chapter per owner, preserved forever.
@@ -380,15 +395,22 @@ footer {
       <section id="products">
         <h2>Product</h2>
         <p class="product-kicker">Launch edition</p>
-        <p class="product-title">Friendly ghost companion — bright colors, gem on belly</p>
+        <p class="product-title">Friendly spirit companion — bright colors, gem on belly</p>
         <div class="product-showcase">
           <div class="product-variants">
             <figure class="product-variant">
               <figcaption class="product-variant-label">The character</figcaption>
-              <div class="product-image-frame" style="min-height: 140px; padding: 20px;">
-                <p class="muted" style="text-align: center; font-size: 0.9rem;">
-                  Soft ghost figure · 3D-printed two-part shell · Seeed XIAO BLE inside (21 × 17.8 mm)
-                </p>
+              <div class="product-image-frame product-video-frame">
+                <video
+                  class="product-video"
+                  src="assets/spirit-ad.mp4"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                  preload="auto"
+                  aria-label="GemTale friendly spirit companion — bright colors, gem on belly"
+                ></video>
               </div>
             </figure>
             <figure class="product-variant">
@@ -404,7 +426,7 @@ footer {
             <li>
               <span></span>
               <div>
-                Friendly ghost + belly gem
+                Friendly spirit + belly gem
                 <small>Your companion follows you; the gem holds the story. Trendy bright colors — not fine jewelry.</small>
               </div>
             </li>
@@ -425,15 +447,27 @@ footer {
             <li>
               <span></span>
               <div>
+<<<<<<< HEAD
                 Forward &amp; follow
-                <small>Pass the ghost on; your chapter freezes. Follow the adventure as the gem travels.</small>
+                <small>Pass the spirit on; your chapter freezes. Follow the adventure as the gem travels.</small>
+=======
+                USB pairing dock included
+                <small>Wall charger, laptop, or included dock — power once per owner to link gem to account.</small>
+              </div>
+            </li>
+            <li>
+              <span></span>
+              <div>
+                Two modern necklace designs
+                <small>Female and male versions at launch — each with its own gem color, chosen to your taste.</small>
+>>>>>>> 970605f2335153499f318c2200ac4291a303a76a
               </div>
             </li>
           </ul>
         </div>
         <p class="product-note">
-          Launch: one ghost design, multiple bright body colorways and gem-belly colors at checkout.
-          Product photography coming — hardware spec: Seeed XIAO nRF52840, ~21 × 17.8 × 3.5 mm module.
+          Launch: one spirit design, multiple bright body colorways and gem-belly colors at checkout.
+          Hardware: Seeed XIAO nRF52840, ~21 × 17.8 × 3.5 mm module.
         </p>
       </section>
       <section id="investors" class="investor-card">
@@ -442,7 +476,7 @@ footer {
           <h2>The first traveling story companion</h2>
         </div>
         <p class="investor-intro">
-          GemTale connects a daily adventure log (AI + photos) to a 3D-printed ghost with a gem on its belly —
+          GemTale connects a daily adventure log (AI + photos) to a 3D-printed spirit with a gem on its belly —
           designed to be <strong>forwarded</strong> between people. Freemium: affordable plastic hardware,
           free base app, Premium to follow full owner chains and traveling gems. Adults 25–55, gift &
           friend-forward occasions. Founded 2025, HQ Munich. Seeking €650k Seed.
@@ -458,7 +492,7 @@ footer {
           </div>
           <div>
             <h3>Moat</h3>
-            <p>Physical ghost + belly gem + AI adventure log + forward/follow mechanic.</p>
+            <p>Physical spirit + belly gem + AI adventure log + forward/follow mechanic.</p>
           </div>
         </div>
         <div class="investor-metrics">
@@ -479,7 +513,7 @@ footer {
       </section>
       <section id="shop">
         <h2>Shop</h2>
-        <p>Online shop coming soon. Friendly ghost companions in bright colors — pick your gem-belly shade.</p>
+        <p>Online shop coming soon. Friendly spirit companions in bright colors — pick your gem-belly shade.</p>
       </section>
       <section id="contact">
         <h2>Contact</h2>

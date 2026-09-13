@@ -173,6 +173,19 @@ section p {
   letter-spacing: 0.14em;
   color: var(--accent);
 }
+.product-story-frame {
+  min-height: 0;
+  max-height: none;
+  height: auto;
+  align-items: center;
+  padding: 22px 24px;
+}
+.product-story-frame p {
+  margin: 0;
+  text-align: left;
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
 .product-specs {
   display: grid;
   gap: 10px;
@@ -309,6 +322,10 @@ footer {
     max-height: 240px;
     padding: 14px;
   }
+  .product-story-frame {
+    max-height: none;
+    padding: 18px 18px;
+  }
   .product-image {
     max-height: 200px;
   }
@@ -335,6 +352,17 @@ footer {
 @media (min-width: 768px) and (max-width: 900px) {
   .product-showcase {
     grid-template-columns: 1fr;
+  }
+}
+/* On wide screens the variants sit in a narrow column beside the spec list,
+   which is too cramped for a paragraph — stack them so the story gets full width. */
+@media (min-width: 901px) {
+  .product-variants {
+    grid-template-columns: 1fr;
+  }
+  .product-video {
+    max-width: 260px;
+    max-height: 260px;
   }
 }
 </style>
@@ -415,8 +443,8 @@ footer {
             </figure>
             <figure class="product-variant">
               <figcaption class="product-variant-label">The story</figcaption>
-              <div class="product-image-frame" style="min-height: 140px; padding: 20px;">
-                <p class="muted" style="text-align: left; font-size: 0.9rem; line-height: 1.6;">
+              <div class="product-image-frame product-story-frame">
+                <p class="muted">
                   Mimir fell into a black-hole well on his home planet, and he has been falling
                   from world to world ever since. He attaches himself to one person at a time,
                   keeps their story in the gem he carries, then falls onward.

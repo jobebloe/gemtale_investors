@@ -235,6 +235,7 @@ h2 {
   padding-left: 22px;
 }
 .story p + p { margin-top: 16px; }
+.story em, .split .body em { color: var(--fg); font-style: italic; }
 .specs { list-style: none; }
 .specs li {
   padding: 26px 0;
@@ -257,6 +258,7 @@ h2 {
   letter-spacing: -0.01em;
 }
 .specs p { color: var(--muted); font-size: 0.98rem; line-height: 1.65; }
+.product-note + .product-note { margin-top: 16px; }
 .product-note {
   margin-top: 40px;
   color: var(--muted);
@@ -272,6 +274,7 @@ h2 {
     var(--bg);
 }
 .investors .lede { max-width: 780px; margin-top: 20px; }
+.investors .investor-b2b { font-size: 1.02rem; margin: 0 0 clamp(40px, 6vw, 64px); }
 .pillars {
   display: grid;
   grid-template-columns: 1fr;
@@ -404,6 +407,11 @@ footer .wrap {
           <strong>Forward Mimir</strong> to a friend: your chapter freezes, theirs begins, and you
           can follow the traveling gem&apos;s story as it moves from person to person.
         </p>
+        <p>
+          Where we stand today: a <strong>working web app</strong> with daily entries, story generation,
+          multi-gem timelines and handover with chapter freeze; <strong>live NFC tap-to-pair</strong> on the
+          first physical spirits; and a printable v4 enclosure. Founded 2025 in Grafing near Munich, founder-led.
+        </p>
       </div>
     </div>
   </section>
@@ -420,6 +428,11 @@ footer .wrap {
           a chapter with photos and AI-crafted entries. The gem it carries is the thread.
           Our vision: the first companion whose story you can <strong>forward</strong> and
           <strong>follow</strong> — one chapter per owner, preserved forever.
+        </p>
+        <p>
+          On specs we lose to any gadget; on feeling we have a character with a myth and a mechanic.
+          Giving an object away is counter-intuitive — in Mimir&apos;s story it is inevitable. He was always going
+          to fall onward. <em>He fell into a human&apos;s life once. Now it&apos;s yours.</em>
         </p>
       </div>
     </div>
@@ -457,6 +470,11 @@ footer .wrap {
               keeps their story in the gem he carries, then falls onward.
             </p>
             <p>In the book, that person is a boy named Arvid. Out here, it&apos;s you.</p>
+            <p>
+              The name is borrowed from Norse myth: Mímir keeps the well where all knowledge settles,
+              and his head goes on giving counsel long after his own life has ended. The word shares
+              a root with <em>memory</em>. The glowing gem on his belly was in the manuscript before it was a product.
+            </p>
           </figure>
         </div>
 
@@ -496,6 +514,13 @@ footer .wrap {
               <p>The app is free with your spirit and your own diary is never locked. Print your year as a book if you want it — nothing to renew, nothing to cancel.</p>
             </div>
           </li>
+          <li>
+            <span class="num">06</span>
+            <div>
+              <h3>Built to be passed on</h3>
+              <p>About 18 g of recyclable PETG, held by three M2 screws so a half or the tag can be replaced. No firmware to go unsupported. The one evening ritual: mood, a few words, a photo — one entry per gem per day, publishable to several spirits at once.</p>
+            </div>
+          </li>
         </ul>
       </div>
 
@@ -504,6 +529,11 @@ footer .wrap {
         €12.99 in a printed sleeve, or €19.99 hand-painted in a gift box — no subscription either way.
         36 × 40 × 41 mm on a bag strap or keyring. Printed in PETG.
         Inside: a single passive NFC tag — no battery, no board, no charging port.
+      </p>
+      <p class="product-note">
+        A passive tag is not a radio transmitter: no radio certification, no battery regulation,
+        no lithium shipping rules. The story engine runs rule-based and offline — about 280 phrases
+        across ten themes and four moods — so an entry costs nothing to generate; a language model is an optional upgrade, not a dependency.
       </p>
     </div>
   </section>
@@ -523,21 +553,28 @@ footer .wrap {
       <div class="pillars">
         <div>
           <h3>Market</h3>
-          <p>Emotional consumer tech · keepsakes · digital wellness · meaningful gifts. SAM DACH + EU: €500M–€1B over 5 years.</p>
+          <p>Emotional consumer tech · keepsakes · digital wellness · meaningful gifts. SAM DACH + EU: €500M–€1B over 5 years. Beachhead: DACH gift occasions and family/mindfulness buyers; people want digital content anchored in something physical.</p>
         </div>
         <div>
           <h3>Model</h3>
-          <p>No subscription. Spirits from €12.99, one-time €24.99 unlock, printed Year Books, B2B editions. Illustrative Year 3 revenue ~€1.8M, gross margin ~70%.</p>
+          <p>No subscription. Spirits from €12.99, one-time €24.99 unlock, printed Year Books, B2B editions. Illustrative Year 3 revenue ~€1.8M, gross margin ~70%. Keepsakes are print-on-demand: the Year Book each January, a Chapter Book at handover, the Full Tale once a spirit has had three owners.</p>
         </div>
         <div>
           <h3>Moat</h3>
-          <p>A named character with a story behind him + AI adventure log + forward/follow mechanic.</p>
+          <p>A named character with a story behind him + AI adventure log + forward/follow mechanic. Competitors can copy a printed figure with a chip in a quarter; they cannot copy a character people have already handed to someone they love.</p>
         </div>
         <div>
           <h3>Unit economics</h3>
-          <p>~€3.26 to make, sold from €12.99 — a ~70% margin. Priced to be an easy yes, not to invent volume: Year 3 is tens of thousands of spirits, not a hundred thousand.</p>
+          <p>~€3.26 to make, sold from €12.99 — a ~70% margin. Priced to be an easy yes, not to invent volume: Year 3 is tens of thousands of spirits, not a hundred thousand. Acquisition cost is ~€0 via handover, gifting and B2B — the partner&apos;s brand does the storytelling.</p>
         </div>
       </div>
+
+      <p class="lede investor-b2b">
+        Because the shell is 3D-printed, a co-branded edition costs nothing in tooling — a partner colorway
+        with embossed logo is a file edit and a filament change, at roughly 500-unit minimums. Outdoor and travel
+        brands, corporate gifting and <strong>house gems</strong> that stay at a hotel or mountain hut are the
+        volume engine from Year 2 — thousands of activated users, funded by the partner&apos;s marketing.
+      </p>
 
       <div class="metrics">
         <div>

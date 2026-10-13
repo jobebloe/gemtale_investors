@@ -12,366 +12,355 @@
   --muted: #777777;
   --border: #2a2a2a;
   --radius: 12px;
+  --max: 1200px;
+  --pad: clamp(20px, 5vw, 64px);
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   background: var(--bg);
   color: var(--fg);
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
-.page {
-  max-width: 1000px;
+a { color: inherit; }
+strong { color: var(--fg); font-weight: 600; }
+.wrap {
+  max-width: var(--max);
   margin: 0 auto;
-  padding: 32px 20px 64px;
+  padding-left: var(--pad);
+  padding-right: var(--pad);
 }
-header {
+
+/* ---------- NAV ---------- */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(5,5,5,0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+.nav .wrap {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
-  margin-bottom: 40px;
+  height: 64px;
 }
 .logo {
   font-weight: 600;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   font-size: 0.85rem;
+  text-decoration: none;
 }
-nav a {
+.nav-links {
+  display: flex;
+  gap: 28px;
+}
+.nav-links a {
   color: var(--muted);
   text-decoration: none;
-  margin-left: 20px;
   font-size: 0.9rem;
+  transition: color 0.15s;
 }
-nav a:hover {
-  color: var(--accent);
-}
-.hero {
+.nav-links a:hover { color: var(--fg); }
+.nav-toggle {
+  display: none;
+  background: none;
   border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 32px 28px;
-  margin-bottom: 48px;
-  background: radial-gradient(circle at top, #333 0, #050505 55%);
+  border-radius: 999px;
+  color: var(--fg);
+  font: inherit;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 8px 14px;
+  cursor: pointer;
 }
-.hero h1 {
-  font-size: clamp(2.1rem, 4vw, 2.8rem);
-  margin-bottom: 12px;
+
+/* ---------- SECTIONS ---------- */
+.section {
+  padding: clamp(64px, 10vw, 128px) 0;
+  border-top: 1px solid var(--border);
 }
-.hero p {
-  color: var(--muted);
-  max-width: 560px;
+.eyebrow {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--accent);
   margin-bottom: 20px;
 }
-.hero-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--accent);
-  margin-bottom: 16px;
-}
-.hero-tag-dot {
+.eyebrow::before {
+  content: "";
+  flex-shrink: 0;
+  margin-top: 0.45em;
   width: 7px;
   height: 7px;
   border-radius: 999px;
   background: var(--accent);
 }
-.hero-cta {
+h2 {
+  font-size: clamp(1.9rem, 3.6vw, 3rem);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  font-weight: 600;
+}
+.lede {
+  color: var(--muted);
+  font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+  line-height: 1.65;
+}
+.split {
+  display: grid;
+  gap: 32px 64px;
+  grid-template-columns: 1fr;
+}
+.split > .side { align-self: start; }
+.split .body p { color: var(--muted); font-size: 1.05rem; line-height: 1.75; }
+.split .body p + p { margin-top: 18px; }
+
+/* ---------- HERO ---------- */
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(96px, 16vw, 200px) 0 clamp(72px, 10vw, 128px);
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: -40% -20% auto -20%;
+  height: 120%;
+  background: radial-gradient(ellipse at 50% 0%, #333 0, rgba(5,5,5,0) 60%);
+  pointer-events: none;
+}
+.hero .wrap { position: relative; }
+.hero h1 {
+  font-size: clamp(2.6rem, 7vw, 5.4rem);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  font-weight: 600;
+  max-width: 14ch;
+  margin-bottom: 28px;
+}
+.hero .lede { max-width: 620px; margin-bottom: 40px; }
+.btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 10px 18px;
+  gap: 14px;
+  padding: 14px 24px;
   border-radius: 999px;
   border: 1px solid var(--accent);
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   color: var(--fg);
   text-decoration: none;
+  transition: background 0.15s, transform 0.15s;
 }
-.hero-cta span {
-  color: var(--muted);
-  font-size: 0.8rem;
-}
-.sections {
+.btn:hover { background: rgba(192,192,192,0.1); transform: translateY(-1px); }
+.btn-label { white-space: nowrap; }
+.btn-sub { color: var(--muted); font-size: 0.82rem; }
+
+/* ---------- METRICS ---------- */
+.metrics {
   display: grid;
-  gap: 28px;
-  margin-top: 16px;
+  grid-template-columns: 1fr;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
-section {
-  border-radius: var(--radius);
-  border: 1px solid var(--border);
-  padding: 28px 24px;
-  background: linear-gradient(135deg, #111 0, #050505 60%);
-  height: 100%;
+.metrics div {
+  padding: 28px 0;
+  border-bottom: 1px solid var(--border);
 }
-section h2 {
-  font-size: 1.1rem;
-  margin-bottom: 10px;
-}
-section p {
-  color: var(--muted);
-  font-size: 0.95rem;
-}
-/* PRODUCT */
-.product-showcase {
-  display: grid;
-  gap: 20px;
-  margin-top: 12px;
-}
-.product-variants {
-  display: grid;
-  gap: 14px;
-  grid-template-columns: 1fr 1fr;
-}
-.product-variant {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  align-items: stretch;
-}
-.product-image-frame {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  min-height: 160px;
-  max-height: 260px;
-  padding: 16px;
-  border-radius: 10px;
-  border: 1px solid var(--border);
-  background: #111;
-}
-.product-image {
-  max-width: 100%;
-  max-height: 220px;
-  width: auto;
-  height: auto;
-  object-fit: contain;
+.metrics div:last-child { border-bottom: 0; }
+.metrics strong {
   display: block;
+  font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-weight: 600;
 }
-.product-video-frame {
-  padding: 10px;
-  min-height: 0;
-  background: #0a0a0a;
-}
-.product-video {
-  width: 100%;
-  max-width: 200px;
-  max-height: 200px;
-  margin: 0 auto;
+.metrics span {
   display: block;
-  object-fit: cover;
-  border-radius: 8px;
-  background: #000;
-}
-.product-variant-label {
+  margin-top: 8px;
   font-size: 0.78rem;
   text-transform: uppercase;
   letter-spacing: 0.14em;
-  color: var(--accent);
-}
-.product-story-frame {
-  min-height: 0;
-  max-height: none;
-  height: auto;
-  align-items: center;
-  padding: 22px 24px;
-}
-.product-story-frame p {
-  margin: 0;
-  text-align: left;
-  font-size: 0.92rem;
-  line-height: 1.7;
-}
-.product-specs {
-  display: grid;
-  gap: 10px;
-  list-style: none;
-}
-.product-specs li {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  padding: 12px 14px;
-  border-radius: 10px;
-  border: 1px solid var(--border);
-  background: rgba(255,255,255,0.02);
-  font-size: 0.92rem;
-  color: var(--fg);
-}
-.product-specs li span {
-  flex-shrink: 0;
-  width: 8px;
-  height: 8px;
-  margin-top: 7px;
-  border-radius: 999px;
-  background: var(--accent);
-}
-.product-specs li small {
-  display: block;
   color: var(--muted);
-  font-size: 0.82rem;
-  margin-top: 2px;
 }
-.product-note {
-  margin-top: 14px;
+
+/* ---------- PRODUCT ---------- */
+.product-head { margin-bottom: clamp(40px, 6vw, 72px); }
+.product-head .lede { max-width: 720px; margin-top: 16px; }
+.product-grid {
+  display: grid;
+  gap: 48px;
+  grid-template-columns: 1fr;
+  align-items: start;
 }
-.product-kicker {
+.media-stack { display: grid; gap: 32px; }
+.media-label {
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.16em;
   color: var(--accent);
-  margin-bottom: 6px;
+  margin-bottom: 14px;
 }
-.product-title {
-  font-size: 1rem;
-  color: var(--fg);
-  margin-bottom: 12px;
-}
-/* INVESTOR CARD */
-.investor-card {
-  background: radial-gradient(circle at top left, #1a1a1a 0%, #050505 70%);
-  border: 1px solid rgba(192,192,192,0.25);
-  box-shadow: 0 0 40px rgba(192,192,192,0.08);
-}
-.investor-header h2 {
-  font-size: 1.4rem;
-  margin-top: 6px;
-}
-.investor-tag {
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  color: var(--accent);
-}
-.investor-intro {
-  margin: 14px 0 20px;
-  max-width: 720px;
-}
-.investor-grid {
-  display: grid;
-  gap: 16px;
-  margin-bottom: 20px;
-}
-.investor-grid h3 {
-  font-size: 0.85rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 4px;
-}
-.investor-grid p {
-  font-size: 0.9rem;
-}
-.investor-metrics {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  margin-bottom: 20px;
-}
-.investor-metrics div {
+.video-frame {
+  border-radius: 20px;
   border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 10px;
-  text-align: center;
-  background: rgba(255,255,255,0.02);
+  background: radial-gradient(circle at 50% 40%, #1a1a1a 0, #050505 70%);
+  padding: 32px;
+  display: flex;
+  justify-content: center;
 }
-.investor-metrics span {
+.product-video {
+  width: 100%;
+  max-width: 320px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 14px;
+  background: #000;
   display: block;
-  font-size: 0.7rem;
+}
+.story p {
   color: var(--muted);
-  margin-bottom: 2px;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  border-left: 1px solid var(--border);
+  padding-left: 22px;
 }
-.investor-metrics strong {
-  font-size: 0.85rem;
+.story p + p { margin-top: 16px; }
+.specs { list-style: none; }
+.specs li {
+  padding: 26px 0;
+  border-top: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  gap: 16px;
 }
-.investor-cta {
-  display: inline-block;
-  border: 1px solid var(--accent);
-  border-radius: 999px;
-  padding: 10px 18px;
-  font-size: 0.85rem;
-  text-decoration: none;
-  color: var(--fg);
+.specs li:last-child { border-bottom: 1px solid var(--border); }
+.specs .num {
+  font-size: 0.78rem;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  padding-top: 4px;
 }
-.investor-cta:hover {
-  background: rgba(192,192,192,0.08);
+.specs h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+  letter-spacing: -0.01em;
 }
-footer {
+.specs p { color: var(--muted); font-size: 0.98rem; line-height: 1.65; }
+.product-note {
   margin-top: 40px;
+  color: var(--muted);
+  font-size: 0.95rem;
+  max-width: 760px;
+  line-height: 1.7;
+}
+
+/* ---------- INVESTORS ---------- */
+.investors {
+  background:
+    radial-gradient(ellipse at 100% 0%, #1a1a1a 0, rgba(5,5,5,0) 55%),
+    var(--bg);
+}
+.investors .lede { max-width: 780px; margin-top: 20px; }
+.pillars {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0 40px;
+  margin: clamp(40px, 6vw, 72px) 0;
+}
+.pillars div {
+  padding: 26px 0;
+  border-top: 1px solid var(--border);
+}
+.pillars h3 {
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+.pillars p { color: var(--muted); font-size: 0.98rem; line-height: 1.65; }
+.investors .btn { margin-top: 40px; }
+
+/* ---------- SHOP / CONTACT ---------- */
+.duo {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px 64px;
+}
+.duo h2 { font-size: clamp(1.5rem, 2.4vw, 2rem); margin-bottom: 14px; }
+.duo p { color: var(--muted); font-size: 1.05rem; }
+.duo a { color: var(--fg); text-decoration: none; border-bottom: 1px solid var(--accent); }
+
+footer {
+  border-top: 1px solid var(--border);
+  padding: 32px 0 48px;
   font-size: 0.8rem;
   color: var(--muted);
-  border-top: 1px solid var(--border);
-  padding-top: 16px;
 }
+footer .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 32px;
+  justify-content: space-between;
+}
+
+/* ---------- RESPONSIVE ---------- */
 @media (max-width: 767px) {
-  nav a {
-    margin-left: 0;
-    margin-right: 16px;
+  .nav-toggle { display: inline-flex; }
+  .nav-links {
+    display: none;
+    position: absolute;
+    left: 0; right: 0; top: 64px;
+    flex-direction: column;
+    gap: 0;
+    background: rgba(5,5,5,0.97);
+    border-bottom: 1px solid var(--border);
+    padding: 8px 0 12px;
   }
-  .investor-metrics {
-    grid-template-columns: 1fr;
+  .nav-links a {
+    padding: 14px var(--pad);
+    font-size: 1rem;
   }
-  .product-variants {
-    grid-template-columns: 1fr;
-  }
-  .product-image-frame {
-    max-height: 240px;
-    padding: 14px;
-  }
-  .product-story-frame {
-    max-height: none;
-    padding: 18px 18px;
-  }
-  .product-image {
-    max-height: 200px;
-  }
+  .nav.open .nav-links { display: flex; }
+  .hero .btn { flex-direction: column; align-items: flex-start; gap: 4px; border-radius: 18px; }
 }
-@media (min-width: 768px) {
-  .sections {
-    grid-template-columns: 1fr 1fr;
-    align-items: stretch;
-  }
-  #about { grid-column: 1; grid-row: 1; }
-  #vision { grid-column: 2; grid-row: 1; }
-  #products { grid-column: 1 / -1; grid-row: 2; }
-  #investors { grid-column: 1 / -1; grid-row: 3; }
-  #shop { grid-column: 1; grid-row: 4; }
-  #contact { grid-column: 2; grid-row: 4; }
-  .product-showcase {
-    grid-template-columns: 1.15fr 1fr;
-    align-items: start;
-  }
-  .investor-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+@media (min-width: 640px) {
+  .metrics { grid-template-columns: repeat(3, 1fr); }
+  .metrics div { border-bottom: 0; border-left: 1px solid var(--border); padding: 32px 28px; }
+  .metrics div:first-child { border-left: 0; padding-left: 0; }
+  .pillars { grid-template-columns: repeat(2, 1fr); }
 }
-@media (min-width: 768px) and (max-width: 900px) {
-  .product-showcase {
-    grid-template-columns: 1fr;
-  }
+@media (min-width: 900px) {
+  .split { grid-template-columns: 5fr 7fr; }
+  .product-grid { grid-template-columns: 5fr 6fr; gap: 72px; }
+  .pillars { grid-template-columns: repeat(4, 1fr); }
+  .duo { grid-template-columns: 1fr 1fr; }
 }
-/* On wide screens the variants sit in a narrow column beside the spec list,
-   which is too cramped for a paragraph — stack them so the story gets full width. */
-@media (min-width: 901px) {
-  .product-variants {
-    grid-template-columns: 1fr;
-  }
-  .product-video {
-    max-width: 260px;
-    max-height: 260px;
-  }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .btn { transition: none; }
 }
 </style>
 </head>
 <body>
-<div class="page">
-  <header>
-    <div class="logo">GemTale</div>
-    <nav>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="logo" href="#top">GemTale</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" onclick="var n=document.getElementById('nav');var o=n.classList.toggle('open');this.setAttribute('aria-expanded',o);">Menu</button>
+    <nav class="nav-links" id="nav-links" onclick="document.getElementById('nav').classList.remove('open');document.querySelector('.nav-toggle').setAttribute('aria-expanded','false');">
       <a href="#about">About us</a>
       <a href="#products">Products</a>
       <a href="#vision">Vision</a>
@@ -379,28 +368,34 @@ footer {
       <a href="#shop">Shop</a>
       <a href="#contact">Contact</a>
     </nav>
-  </header>
-  <main>
-    <section class="hero">
-      <div class="hero-tag">
-        <div class="hero-tag-dot"></div>
-        <span>Traveling story companion · Adventure log</span>
-      </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap">
+      <div class="eyebrow">Traveling story companion · Adventure log</div>
       <h1>Every gem carries a story.</h1>
-      <p>
+      <p class="lede">
         Meet <strong>Mimir</strong> — a friendly spirit carrying a gem. A bright, 3D-printed
         companion that holds your chapter of an adventure log. Each evening, the app turns your
         mood, notes, and photos into an entry. Pass him on: your chapter freezes, and you can
         follow where he travels next.
       </p>
-      <a class="hero-cta" href="#products">
-        Meet Mimir
-        <span>From €12.99 · No subscription · Forward &amp; follow</span>
+      <a class="btn" href="#products">
+        <span class="btn-label">Meet Mimir</span>
+        <span class="btn-sub">From €12.99 · No subscription · Forward &amp; follow</span>
       </a>
-    </section>
-    <div class="sections">
-      <section id="about">
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="wrap split">
+      <div class="side">
         <h2>About us</h2>
+      </div>
+      <div class="body">
         <p>
           GemTale sits at the intersection of emotional consumer tech and playful accessories.
           <strong>Mimir</strong> is a friendly spirit figure (3D-printed, bright colors)
@@ -409,9 +404,16 @@ footer {
           <strong>Forward Mimir</strong> to a friend: your chapter freezes, theirs begins, and you
           can follow the traveling gem&apos;s story as it moves from person to person.
         </p>
-      </section>
-      <section id="vision">
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="vision">
+    <div class="wrap split">
+      <div class="side">
         <h2>Vision</h2>
+      </div>
+      <div class="body">
         <p>
           We believe objects should carry human experience — not precious metal, but
           <strong>stories that travel</strong>. A spirit passed from friend to friend, each adding
@@ -419,145 +421,163 @@ footer {
           Our vision: the first companion whose story you can <strong>forward</strong> and
           <strong>follow</strong> — one chapter per owner, preserved forever.
         </p>
-      </section>
-      <section id="products">
-        <h2>Product</h2>
-        <p class="product-kicker">Launch edition</p>
-        <p class="product-title">Mimir — friendly spirit companion, bright colors, carrying a gem</p>
-        <div class="product-showcase">
-          <div class="product-variants">
-            <figure class="product-variant">
-              <figcaption class="product-variant-label">The character</figcaption>
-              <div class="product-image-frame product-video-frame">
-                <video
-                  class="product-video"
-                  src="assets/spirit-ad.mp4"
-                  autoplay
-                  muted
-                  loop
-                  playsinline
-                  preload="auto"
-                  aria-label="Mimir — GemTale friendly spirit companion, bright colors, carrying a gem"
-                ></video>
-              </div>
-            </figure>
-            <figure class="product-variant">
-              <figcaption class="product-variant-label">The story</figcaption>
-              <div class="product-image-frame product-story-frame">
-                <p class="muted">
-                  Mimir fell into a black-hole well on his home planet, and he has been falling
-                  from world to world ever since. He attaches himself to one person at a time,
-                  keeps their story in the gem he carries, then falls onward.
-                  <br /><br />
-                  In the book, that person is a boy named Arvid. Out here, it&apos;s you.
-                </p>
-              </div>
-            </figure>
-          </div>
-          <ul class="product-specs">
-            <li>
-              <span></span>
-              <div>
-                A character, not a gadget
-                <small>Mimir has a name and a story behind him. The gem he carries holds your chapter of it.</small>
-              </div>
-            </li>
-            <li>
-              <span></span>
-              <div>
-                Wake him with one tap
-                <small>Unlock your phone, stay signed in, hold it to Mimir once. The cloud checks you are allowed to claim him — holding the object is not enough.</small>
-              </div>
-            </li>
-            <li>
-              <span></span>
-              <div>
-                No battery. No port. No power.
-                <small>Nothing to charge and nothing to wear out — which is what makes &ldquo;pass him on in ten years&rdquo; a promise we can keep.</small>
-              </div>
-            </li>
-            <li>
-              <span></span>
-              <div>
-                Forward &amp; follow
-                <small>Pass Mimir on; your chapter freezes. Follow the adventure as he travels.</small>
-              </div>
-            </li>
-            <li>
-              <span></span>
-              <div>
-                No subscription, ever
-                <small>The app is free with your spirit and your own diary is never locked. Print your year as a book if you want it — nothing to renew, nothing to cancel.</small>
-              </div>
-            </li>
-          </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="products">
+    <div class="wrap">
+      <div class="product-head">
+        <div class="eyebrow">Product · Launch edition</div>
+        <h2>Mimir — friendly spirit companion, bright colors, carrying a gem</h2>
+      </div>
+
+      <div class="product-grid">
+        <div class="media-stack">
+          <figure>
+            <figcaption class="media-label">The character</figcaption>
+            <div class="video-frame">
+              <video
+                class="product-video"
+                src="assets/spirit-ad.mp4"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="auto"
+                aria-label="Mimir — GemTale friendly spirit companion, bright colors, carrying a gem"
+              ></video>
+            </div>
+          </figure>
+          <figure class="story">
+            <figcaption class="media-label">The story</figcaption>
+            <p>
+              Mimir fell into a black-hole well on his home planet, and he has been falling
+              from world to world ever since. He attaches himself to one person at a time,
+              keeps their story in the gem he carries, then falls onward.
+            </p>
+            <p>In the book, that person is a boy named Arvid. Out here, it&apos;s you.</p>
+          </figure>
         </div>
-        <p class="product-note">
-          Launch: one sculpt, multiple bright body colorways and gem colors at checkout.
-          €12.99 in a printed sleeve, or €19.99 hand-painted in a gift box — no subscription either way.
-          36 × 40 × 41 mm on a bag strap or keyring. Printed in PETG.
-          Inside: a single passive NFC tag — no battery, no board, no charging port.
-        </p>
-      </section>
-      <section id="investors" class="investor-card">
-        <div class="investor-header">
-          <span class="investor-tag">For investors</span>
-          <h2>The first traveling story companion</h2>
+
+        <ul class="specs">
+          <li>
+            <span class="num">01</span>
+            <div>
+              <h3>A character, not a gadget</h3>
+              <p>Mimir has a name and a story behind him. The gem he carries holds your chapter of it.</p>
+            </div>
+          </li>
+          <li>
+            <span class="num">02</span>
+            <div>
+              <h3>Wake him with one tap</h3>
+              <p>Unlock your phone, stay signed in, hold it to Mimir once. The cloud checks you are allowed to claim him — holding the object is not enough.</p>
+            </div>
+          </li>
+          <li>
+            <span class="num">03</span>
+            <div>
+              <h3>No battery. No port. No power.</h3>
+              <p>Nothing to charge and nothing to wear out — which is what makes &ldquo;pass him on in ten years&rdquo; a promise we can keep.</p>
+            </div>
+          </li>
+          <li>
+            <span class="num">04</span>
+            <div>
+              <h3>Forward &amp; follow</h3>
+              <p>Pass Mimir on; your chapter freezes. Follow the adventure as he travels.</p>
+            </div>
+          </li>
+          <li>
+            <span class="num">05</span>
+            <div>
+              <h3>No subscription, ever</h3>
+              <p>The app is free with your spirit and your own diary is never locked. Print your year as a book if you want it — nothing to renew, nothing to cancel.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <p class="product-note">
+        Launch: one sculpt, multiple bright body colorways and gem colors at checkout.
+        €12.99 in a printed sleeve, or €19.99 hand-painted in a gift box — no subscription either way.
+        36 × 40 × 41 mm on a bag strap or keyring. Printed in PETG.
+        Inside: a single passive NFC tag — no battery, no board, no charging port.
+      </p>
+    </div>
+  </section>
+
+  <section class="section investors" id="investors">
+    <div class="wrap">
+      <div class="eyebrow">For investors</div>
+      <h2>The first traveling story companion</h2>
+      <p class="lede">
+        GemTale connects a daily adventure log (AI + photos) to <strong>Mimir</strong>, a 3D-printed
+        spirit carrying a gem — designed to be <strong>forwarded</strong> between people.
+        <strong>No subscription:</strong> the spirit from €12.99, a free app, a one-time €24.99 unlock,
+        and printed keepsakes of the story. Adults 25–55, gift &amp; friend-forward occasions.
+        Founded 2025, HQ Munich. Seeking €650k Seed.
+      </p>
+
+      <div class="pillars">
+        <div>
+          <h3>Market</h3>
+          <p>Emotional consumer tech · keepsakes · digital wellness · meaningful gifts. SAM DACH + EU: €500M–€1B over 5 years.</p>
         </div>
-        <p class="investor-intro">
-          GemTale connects a daily adventure log (AI + photos) to <strong>Mimir</strong>, a 3D-printed
-          spirit carrying a gem — designed to be <strong>forwarded</strong> between people.
-          <strong>No subscription:</strong> the spirit from €12.99, a free app, a one-time €24.99 unlock,
-          and printed keepsakes of the story. Adults 25–55, gift &amp; friend-forward occasions.
-          Founded 2025, HQ Munich. Seeking €650k Seed.
-        </p>
-        <div class="investor-grid">
-          <div>
-            <h3>Market</h3>
-            <p>Emotional consumer tech · keepsakes · digital wellness · meaningful gifts. SAM DACH + EU: €500M–€1B over 5 years.</p>
-          </div>
-          <div>
-            <h3>Model</h3>
-            <p>No subscription. Spirits from €12.99, one-time €24.99 unlock, printed Year Books, B2B editions. Illustrative Year 3 revenue ~€1.8M, gross margin ~70%.</p>
-          </div>
-          <div>
-            <h3>Moat</h3>
-            <p>A named character with a story behind him + AI adventure log + forward/follow mechanic.</p>
-          </div>
-          <div>
-            <h3>Unit economics</h3>
-            <p>~€3.26 to make, sold from €12.99 — a ~70% margin. Priced to be an easy yes, not to invent volume: Year 3 is tens of thousands of spirits, not a hundred thousand.</p>
-          </div>
+        <div>
+          <h3>Model</h3>
+          <p>No subscription. Spirits from €12.99, one-time €24.99 unlock, printed Year Books, B2B editions. Illustrative Year 3 revenue ~€1.8M, gross margin ~70%.</p>
         </div>
-        <div class="investor-metrics">
-          <div>
-            <span>Raising</span>
-            <strong>€650k Seed</strong>
-          </div>
-          <div>
-            <span>Audience</span>
-            <strong>25–55 · Families + Friends</strong>
-          </div>
-          <div>
-            <span>Status</span>
-            <strong>Early stage</strong>
-          </div>
+        <div>
+          <h3>Moat</h3>
+          <p>A named character with a story behind him + AI adventure log + forward/follow mechanic.</p>
         </div>
-        <a href="#contact" class="investor-cta">Get in touch</a>
-      </section>
-      <section id="shop">
+        <div>
+          <h3>Unit economics</h3>
+          <p>~€3.26 to make, sold from €12.99 — a ~70% margin. Priced to be an easy yes, not to invent volume: Year 3 is tens of thousands of spirits, not a hundred thousand.</p>
+        </div>
+      </div>
+
+      <div class="metrics">
+        <div>
+          <strong>€650k Seed</strong>
+          <span>Raising</span>
+        </div>
+        <div>
+          <strong>25–55 · Families + Friends</strong>
+          <span>Audience</span>
+        </div>
+        <div>
+          <strong>Early stage</strong>
+          <span>Status</span>
+        </div>
+      </div>
+
+      <a href="#contact" class="btn">Get in touch</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap duo">
+      <div id="shop">
         <h2>Shop</h2>
         <p>Online shop coming soon. Mimir in bright colors from €12.99 — pick your gem shade.</p>
-      </section>
-      <section id="contact">
+      </div>
+      <div id="contact">
         <h2>Contact</h2>
-        <p>Email: info.likeyou@gmx.de</p>
-      </section>
+        <p>Email: <a href="mailto:info.likeyou@gmx.de">info.likeyou@gmx.de</a></p>
+      </div>
     </div>
-  </main>
-  <footer>
-    © GemTale — The Gem That Carries Your Story, 2026.
-  </footer>
-</div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© GemTale — The Gem That Carries Your Story, 2026.</span>
+  </div>
+</footer>
+
 </body>
 </html>

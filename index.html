@@ -9,8 +9,13 @@
   --bg: #050505;
   --fg: #f5f5f5;
   --accent: #c0c0c0;
-  --muted: #777777;
+  --muted: #9a9a9a;
   --border: #2a2a2a;
+  --bright: #8fa8ff;
+  --band-hero: #050505;
+  --band-a: #111114;
+  --band-b: #1a1a1f;
+  --band-glow: #10131c;
   --radius: 12px;
   --max: 1200px;
   --pad: clamp(20px, 5vw, 64px);
@@ -81,11 +86,36 @@ strong { color: var(--fg); font-weight: 600; }
   cursor: pointer;
 }
 
-/* ---------- SECTIONS ---------- */
+/* ---------- SECTIONS / BANDS ---------- */
 .section {
   padding: clamp(64px, 10vw, 128px) 0;
   border-top: 1px solid var(--border);
 }
+.band-a { background: var(--band-a); }
+.band-b { background: var(--band-b); }
+.band-glow {
+  background:
+    radial-gradient(ellipse 80% 60% at 90% 0%, rgba(143, 168, 255, 0.12) 0, transparent 55%),
+    radial-gradient(ellipse 50% 40% at 10% 100%, rgba(143, 168, 255, 0.06) 0, transparent 50%),
+    var(--band-glow);
+  border-top-color: rgba(143, 168, 255, 0.18);
+}
+.band-glow .eyebrow,
+.band-glow .eyebrow::before,
+.band-glow .pillars h3 { color: var(--bright); }
+.band-glow .eyebrow::before { background: var(--bright); }
+.band-glow .btn {
+  border-color: rgba(143, 168, 255, 0.55);
+}
+.band-glow .btn:hover {
+  background: rgba(143, 168, 255, 0.1);
+}
+.band-glow .metrics {
+  border-top-color: rgba(143, 168, 255, 0.2);
+  border-bottom-color: rgba(143, 168, 255, 0.2);
+}
+.band-glow .metrics div { border-color: rgba(143, 168, 255, 0.18); }
+.band-glow .pillars div { border-top-color: rgba(143, 168, 255, 0.16); }
 .eyebrow {
   display: inline-flex;
   align-items: flex-start;
@@ -268,11 +298,6 @@ h2 {
 }
 
 /* ---------- INVESTORS ---------- */
-.investors {
-  background:
-    radial-gradient(ellipse at 100% 0%, #1a1a1a 0, rgba(5,5,5,0) 55%),
-    var(--bg);
-}
 .investors .lede { max-width: 780px; margin-top: 20px; }
 .investors .investor-b2b { font-size: 1.02rem; margin: 0 0 clamp(40px, 6vw, 64px); }
 .pillars {
@@ -307,6 +332,7 @@ h2 {
 .duo a { color: var(--fg); text-decoration: none; border-bottom: 1px solid var(--accent); }
 
 footer {
+  background: var(--band-hero);
   border-top: 1px solid var(--border);
   padding: 32px 0 48px;
   font-size: 0.8rem;
@@ -393,7 +419,7 @@ footer .wrap {
     </div>
   </section>
 
-  <section class="section" id="about">
+  <section class="section band-a" id="about">
     <div class="wrap split">
       <div class="side">
         <h2>About us</h2>
@@ -416,7 +442,7 @@ footer .wrap {
     </div>
   </section>
 
-  <section class="section" id="vision">
+  <section class="section band-b" id="vision">
     <div class="wrap split">
       <div class="side">
         <h2>Vision</h2>
@@ -438,7 +464,7 @@ footer .wrap {
     </div>
   </section>
 
-  <section class="section" id="products">
+  <section class="section band-a" id="products">
     <div class="wrap">
       <div class="product-head">
         <div class="eyebrow">Product · Launch edition</div>
@@ -538,7 +564,7 @@ footer .wrap {
     </div>
   </section>
 
-  <section class="section investors" id="investors">
+  <section class="section investors band-glow" id="investors">
     <div class="wrap">
       <div class="eyebrow">For investors</div>
       <h2>The first traveling story companion</h2>
@@ -595,7 +621,7 @@ footer .wrap {
     </div>
   </section>
 
-  <section class="section">
+  <section class="section band-b">
     <div class="wrap duo">
       <div id="shop">
         <h2>Shop</h2>
